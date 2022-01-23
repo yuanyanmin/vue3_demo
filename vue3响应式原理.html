@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let person = {
+            name: '张三',
+            age: 18
+        }
+
+        // vue2 响应式
+        //#region
+        // let p = {}
+        // Object.defineProperty(p, 'name', {
+        //     configurable: true,
+        //     get() {
+        //         return person.name
+        //     },
+        //     set(value) {
+        //         console.log('修改了name');
+        //         person.name = value
+        //     }
+        // })
+        //#endregion
+        
+
+
+        // vue3 响应式
+        //#region
+        // let p = new Proxy(person, {
+        //     // 读取
+        //     get(target, key) {
+        //         console.log('读取信息key', key, target[key]);
+        //         return target[key]
+        //     },
+        //     // 修改 和 新增
+        //     set(target, key, value) {
+        //         console.log('设置信息key', key, target[key], value);
+        //         target[key] = value
+        //     },
+        //     // 删除
+        //     deleteProperty(target, key) {
+        //         console.log('删除信息key', key, target[key]);
+        //         return delete target[key]
+        //     }
+        // })
+        //#endregion
+        
+        // Reflect
+        //#region 
+        // let obj = {a: 1, b: 2}
+
+        // Object.defineProperty(obj, 'c', {
+        //     get() {
+        //         return a
+        //     }
+        // })
+        // Object.defineProperty(obj, 'c', {
+        //     get() {
+        //         return a
+        //     }
+        // })
+
+        // let x1 = Reflect.defineProperty(obj, 'c', {
+        //     get() {
+        //         return a
+        //     }
+        // })
+        // let x2 = Reflect.defineProperty(obj, 'c', {
+        //     get() {
+        //         return a
+        //     }
+        // })
+
+        // console.log(x1);
+        // console.log(x2);
+        //#endregion
+
+        // vue3 响应式
+        //#region
+        // let p = new Proxy(person, {
+        //     // 读取
+        //     get(target, key) {
+        //         console.log('读取信息key', key, target[key]);
+        //         return Reflect.get(target, key)
+        //     },
+        //     // 修改 和 新增
+        //     set(target, key, value) {
+        //         console.log('设置信息key', key, target[key], value);
+        //         Reflect.set(target, key, value)
+        //     },
+        //     // 删除
+        //     deleteProperty(target, key) {
+        //         console.log('删除信息key', key, target[key]);
+        //         return Reflect.deleteProperty(target, key)
+        //     }
+        // })
+        //#endregion
+
+    </script>
+</body>
+</html>
