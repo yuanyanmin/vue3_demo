@@ -248,5 +248,35 @@ npm run dev
     ```
 > 声明周期
 
+* vue3.0 中可以继续使用 vue2.x 中的生命周期钩子，但有两个被更名：
 
+    * `beforeDestory` 改名为 `beforeUnmount`
+    * `destoryed` 改名为 `ummounted`
+
+* vue3.0 也提供了 Composition API 形式的生命周期钩子。与vue2.x 中对应关系如下：
+
+    * beforeCreate ===> setup()
+    * created ===> setup()
+    * beforeMount ===> onBeforeMount()
+    * mounted ===> onMounted()
+    * beforeUpdate ===> onBeforeUpdate()
+    * updated ===> onUpdated()
+    * beforeUnmount ===> onBeforeUnmount()
+    * unmounted ===> onUnmounted()
+
+> 自定义 hook
+
+* hook: 本质是一个函数，把setup函数中使用的 Composition API 进行了封装
+* 类似于 vue2.x 中的 mixin
+* 自定义 hook 的优势：复用代码，让 setup 中的逻辑更清楚易懂
+
+> toRef
+
+* 作用：创建一个 ref 对象，其 value 值指向另一个对象中的某个属性。
+
+* 语法： `const name = toRef(person, 'name')`
+
+* 应用：要将响应式对象中的某个属性单独提供给外部使用时
+
+* 扩展：toRefs 与 toRef 功能一致，但可以批量创建多个 ref 对象，语法：`toRefs(person)`
 

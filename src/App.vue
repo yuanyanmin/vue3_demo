@@ -1,5 +1,11 @@
 <template>
 
+  <toRefTest/>
+  <p>-------------------------</p>
+
+  <button @click="isshow = !isshow">点击隐藏or显示</button>
+  <HookTest v-if="isshow"/>
+  <p>-------------------------</p>
   <WatchTest/>
 
   <ComputedTest/>
@@ -17,23 +23,28 @@
 </template>
 
 <script>
-import { h } from 'vue';
+import { h, ref } from 'vue';
 import Base from './components/base.vue'
 import HelloWorld from './components/HelloWorld.vue'
 import ComputedTest from './components/computed.vue'
 import WatchTest from './components/watch.vue'
+import HookTest from './components/HookTest.vue'
+import toRefTest from './components/toRefTest.vue'
 
 export default {
   name: 'App',
-  components: { HelloWorld, Base, ComputedTest, WatchTest },
+  components: { HelloWorld, Base, ComputedTest, WatchTest, HookTest, toRefTest },
   
   setup() {
   
+    let isshow = ref(true)
+
     function sayHelloMsg (value) {
       console.log('hello ' + value);
     }
 
     return {
+      isshow,
       sayHelloMsg
     }
 
